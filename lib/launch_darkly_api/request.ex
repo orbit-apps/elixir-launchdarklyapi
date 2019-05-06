@@ -36,6 +36,7 @@ defmodule LaunchDarklyAPI.Request do
     end
   end
 
+  def process_response_body(body) when byte_size(body) == 0, do: %{}
   def process_response_body(body), do: Jason.decode(body)
 
   defp url(path), do: "#{@transport}#{@domain}/api/v2/#{path}"
