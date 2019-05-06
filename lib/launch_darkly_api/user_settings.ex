@@ -8,11 +8,11 @@ defmodule LaunchDarklyAPI.UserSettings do
     do: Request.get("users/#{project_key}/#{env_key}/#{user_key}/flags/#{feature_key}")
 
   def update(project_key, env_key, user_key, feature_key, values),
-    do: Request.get("users/#{project_key}/#{env_key}/#{user_key}/flags/#{feature_key}", values)
+    do: Request.put("users/#{project_key}/#{env_key}/#{user_key}/flags/#{feature_key}", values)
 
   def enable(project_key, env_key, user_key, feature_key),
-    do: update(project_key, env_key, user_key, feature_key, %{settings: true})
+    do: update(project_key, env_key, user_key, feature_key, %{setting: true})
 
   def disable(project_key, env_key, user_key, feature_key),
-    do: update(project_key, env_key, user_key, feature_key, %{settings: false})
+    do: update(project_key, env_key, user_key, feature_key, %{setting: false})
 end
