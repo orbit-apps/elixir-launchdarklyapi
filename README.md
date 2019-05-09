@@ -22,4 +22,6 @@ Add the following to your `config/prod.exs`
 ```elixir
 config :launch_darkly_api, :authorization,
   access_token: System.get_env("LAUNCH_DARKLY_API_KEY")
+
+config :launch_darkly_api, :environment, "production"
 ```
