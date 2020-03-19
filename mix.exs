@@ -23,7 +23,7 @@ defmodule LaunchDarklyAPI.MixProject do
     [
       # Dev
       {:credo, "~> 1.0", only: [:dev, :test]},
-      {:dialyxir, "~> 1.0.0-rc.6", only: [:dev], runtime: false},
+      {:dialyxir, "~> 1.0.0", only: [:dev], runtime: false},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
       # Everything else
       {:httpoison, "~> 1.0"},
