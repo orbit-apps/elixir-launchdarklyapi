@@ -1,4 +1,4 @@
 defmodule LaunchDarklyAPI.Projects do
-  alias LaunchDarklyAPI.Request
-  def list, do: Request.get("projects")
+  alias LaunchDarklyAPI.REST
+  def list, do: REST.get("projects")
 end
