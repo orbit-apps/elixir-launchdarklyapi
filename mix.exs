@@ -7,7 +7,11 @@ defmodule LaunchDarklyAPI.MixProject do
       version: "0.1.4",
       elixir: "~> 1.8",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      dialyzer: [
+        plt_add_apps: [:mix, :ex_unit],
+        plt_file: {:no_warn, "priv/plts/dialyzer.plt"}
+      ]
     ]
   end
 
@@ -23,11 +27,12 @@ defmodule LaunchDarklyAPI.MixProject do
     [
       # Dev
       {:credo, "~> 1.0", only: [:dev, :test]},
-      {:dialyxir, "~> 1.0.0", only: [:dev], runtime: false},
+      {:dialyxir, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
       # Everything else
-      {:httpoison, "~> 1.0"},
-      {:jason, "~> 1.0"}
+      {:hackney, "~> 1.16.0"},
+      {:jason, "~> 1.0"},
+      {:tesla, "~> 1.4.0"}
     ]
   end
 end
