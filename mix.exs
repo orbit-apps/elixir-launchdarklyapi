@@ -5,7 +5,7 @@ defmodule LaunchDarklyAPI.MixProject do
     [
       app: :launch_darkly_api,
       version: "0.1.4",
-      elixir: "~> 1.8",
+      elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       dialyzer: [
