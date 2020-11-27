@@ -1,10 +1,12 @@
 defmodule LaunchDarklyAPI.MixProject do
   use Mix.Project
 
+  @version "0.2.0"
+
   def project do
     [
       app: :launch_darkly_api,
-      version: "0.1.4",
+      version: @version,
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
