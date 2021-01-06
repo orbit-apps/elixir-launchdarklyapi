@@ -32,7 +32,7 @@ defmodule LaunchDarklyAPI.MixProject do
       {:dialyxir, "~> 1.0.0", only: [:dev, :test], runtime: false},
       {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
       # Everything else
-      {:hackney, "~> 1.16.0"},
+      {:hackney, "~> 1.17.0"},
       {:jason, "~> 1.0"},
       {:tesla, "~> 1.4.0"}
     ]
