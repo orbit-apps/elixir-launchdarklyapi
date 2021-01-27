@@ -4,6 +4,7 @@
 # If you find anything wrong or unclear in this file, please report an
 # issue on GitHub: https://github.com/rrrene/credo/issues
 #
+# TEST
 %{
   #
   # You can have as many configs as you like in the `configs:` field.
