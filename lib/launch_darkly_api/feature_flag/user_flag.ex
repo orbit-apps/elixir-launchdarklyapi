@@ -1,7 +1,7 @@
 defmodule LaunchDarklyAPI.FeatureFlag.UserFlag do
-  require Logger
-
   alias LaunchDarklyAPI.UserSettings
+
+  require Logger
 
   defstruct environment: "staging", feature: "", product: "", user: "", value: false
 
