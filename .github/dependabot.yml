@@ -1,0 +1,20 @@
+version: 2
+registries:
+  hex-organization-oban:
+    type: hex-organization
+    organization: oban
+    key: "${{secrets.HEX_ORGANIZATION_OBAN_KEY}}"
+
+updates:
+- package-ecosystem: mix
+  directory: "/"
+  schedule:
+    interval: daily
+  ignore:
+  - dependency-name: hackney
+    versions:
+    - 1.17.1
+    - 1.17.2
+    - 1.17.3
+  registries:
+  - hex-organization-oban
