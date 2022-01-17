@@ -30,7 +30,6 @@ defmodule LaunchDarklyAPI.MixProject do
       # Dev
       {:credo, "~> 1.0", only: [:dev, :test]},
       {:dialyxir, "~> 1.1.0", only: [:dev, :test], runtime: false},
-      {:excoveralls, ">= 0.0.0", only: [:dev, :test]},
       # Everything else
       {:hackney, "~> 1.17.0"},
       {:jason, "~> 1.0"},
