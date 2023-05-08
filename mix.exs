@@ -33,7 +33,7 @@ defmodule LaunchDarklyAPI.MixProject do
       # Everything else
       {:hackney, "~> 1.18.0"},
       {:jason, "~> 1.0"},
-      {:tesla, "~> 1.5.0"}
+      {:tesla, "~> 1.6.1"}
     ]
   end
 end
