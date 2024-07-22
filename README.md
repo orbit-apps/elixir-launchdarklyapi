@@ -9,7 +9,7 @@ WARNING: Not complete.
 ```elixir
 def deps do
   [
-    {:launch_darkly_api, github: "pixelunion/elixir-launchdarklyapi", tag: "v0.2.1"}
+    {:launch_darkly_api, github: "orbit-apps/elixir-launchdarklyapi", tag: "v0.2.3"}
   ]
 end
 ```
@@ -17,7 +17,6 @@ end
 ## Configuration
 
 Add the following to your `config/prod.exs`
-
 
 ```elixir
 config :launch_darkly_api, :authorization,
