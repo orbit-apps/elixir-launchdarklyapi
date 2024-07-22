@@ -1,7 +1,7 @@
 defmodule LaunchDarklyAPI.MixProject do
   use Mix.Project
 
-  @version "0.2.2"
+  @version "0.2.3"
 
   def project do
     [
@@ -28,12 +28,12 @@ defmodule LaunchDarklyAPI.MixProject do
   defp deps do
     [
       # Dev
-      {:credo, "~> 1.0", only: [:dev, :test]},
-      {:dialyxir, "~> 1.3.0", only: [:dev, :test], runtime: false},
+      {:credo, "~> 1.7", only: [:dev, :test]},
+      {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       # Everything else
-      {:hackney, "~> 1.18.0"},
-      {:jason, "~> 1.0"},
-      {:tesla, "~> 1.7.0"}
+      {:hackney, "~> 1.20.1"},
+      {:jason, "~> 1.4"},
+      {:tesla, "~> 1.11"}
     ]
   end
 end
