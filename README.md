@@ -9,7 +9,7 @@ WARNING: Not complete.
 ```elixir
 def deps do
   [
-    {:launch_darkly_api, github: "orbit-apps/elixir-launchdarklyapi", tag: "v0.2.3"}
+    {:launch_darkly_api, github: "orbit-apps/elixir-launchdarklyapi", tag: "v0.3.0"}
   ]
 end
 ```
