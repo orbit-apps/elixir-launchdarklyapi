@@ -1,5 +1,5 @@
 defmodule LaunchDarklyAPI.FeatureFlag.UserFlag do
-  alias LaunchDarklyAPI.UserSettings
+  alias LaunchDarklyAPI.ContextSettings
 
   require Logger
 
@@ -17,9 +17,9 @@ defmodule LaunchDarklyAPI.FeatureFlag.UserFlag do
 
   @spec all(String.t(), String.t()) :: list()
   def all(project, user) do
-    case UserSettings.list(project, get_env(), user) do
+    case ContextSettings.list(project, get_env(), "user", user) do
       {:ok, %{"items" => flags}} ->
-        Enum.map(flags, fn {k, %{"setting" => v}} -> new(project, user, k, v == true) end)
+        Enum.map(flags, fn %{"key" => k, "_value" => v} -> new(project, user, k, v == true) end)
 
       _ ->
         []
@@ -32,13 +32,14 @@ defmodule LaunchDarklyAPI.FeatureFlag.UserFlag do
 
     update_func =
       case feature_flag.value do
-        true -> &UserSettings.enable/4
-        false -> &UserSettings.disable/4
+        true -> &ContextSettings.enable/5
+        false -> &ContextSettings.disable/5
       end
 
     update_func.(
       feature_flag.project,
       feature_flag.environment,
+      "user",
       feature_flag.user,
       feature_flag.feature
     )
