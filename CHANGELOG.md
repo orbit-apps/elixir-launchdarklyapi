@@ -1,5 +1,12 @@
 ## Unreleased
 
+## 0.3.0
+
+- Migrate away from deprecated Users api
+- BREAKING: removal of LaunchDarklyAPI.UserSettings and LaunchDarklyAPI.Users modules
+- BREAKING: fixes a typo in a FeatureFlag.UserFlag struct key
+- New: LaunchDarklyAPI.ContextSettings module
+
 ## 0.2.3
 
 - Bump elixir, erlang, and all deps

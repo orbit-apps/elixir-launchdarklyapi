@@ -1,25 +1,25 @@
 defmodule LaunchDarklyAPI.FeatureFlag.UserFlag do
-  alias LaunchDarklyAPI.UserSettings
+  alias LaunchDarklyAPI.ContextSettings
 
   require Logger
 
-  defstruct environment: "staging", feature: "", product: "", user: "", value: false
+  defstruct environment: "staging", feature: "", project: "", user: "", value: false
 
   @type t :: %__MODULE__{
           environment: String.t(),
           feature: String.t(),
-          product: String.t(),
+          project: String.t(),
           user: String.t(),
           value: boolean
         }
 
   @default_env "staging"
 
-  @spec update(String.t()) :: list()
-  def all(product, user) do
-    case UserSettings.list(product, get_env(), user) do
+  @spec all(String.t(), String.t()) :: list()
+  def all(project, user) do
+    case ContextSettings.list(project, get_env(), "user", user) do
       {:ok, %{"items" => flags}} ->
-        Enum.map(flags, fn {k, %{"setting" => v}} -> new(product, user, k, v == true) end)
+        Enum.map(flags, fn %{"key" => k, "_value" => v} -> new(project, user, k, v == true) end)
 
       _ ->
         []
@@ -32,24 +32,25 @@ defmodule LaunchDarklyAPI.FeatureFlag.UserFlag do
 
     update_func =
       case feature_flag.value do
-        true -> &UserSettings.enable/4
-        false -> &UserSettings.disable/4
+        true -> &ContextSettings.enable/5
+        false -> &ContextSettings.disable/5
       end
 
     update_func.(
-      feature_flag.product,
+      feature_flag.project,
       feature_flag.environment,
+      "user",
       feature_flag.user,
       feature_flag.feature
     )
   end
 
   @spec new(String.t(), String.t(), String.t(), boolean) :: __MODULE__.t()
-  def new(product, user, key, value) do
+  def new(project, user, key, value) do
     %__MODULE__{
       environment: get_env(),
       feature: key,
-      product: product,
+      project: project,
       user: user,
       value: value
     }
