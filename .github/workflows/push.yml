@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.7
       - name: Cache dialyzer plts
-        uses: actions/cache@v4.0.2
+        uses: actions/cache@v4.1.0
         with:
           path: priv/plts
           key: ${{runner.os}}-${{matrix.otp}}-${{matrix.elixir}}-plts
