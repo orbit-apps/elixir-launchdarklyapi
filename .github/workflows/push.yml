@@ -7,11 +7,6 @@ jobs:
     env:
       MIX_ENV: test
 
-    strategy:
-      matrix:
-        otp: [24.2, 25.2]
-        elixir: [1.13.2, 1.14.3]
-
     steps:
       - uses: actions/checkout@v4.2.2
       - name: Cache dialyzer plts
@@ -21,8 +16,8 @@ jobs:
           key: ${{runner.os}}-${{matrix.otp}}-${{matrix.elixir}}-plts
       - uses: erlef/setup-elixir@v1
         with:
-          otp-version: ${{matrix.otp}}
-          elixir-version: ${{matrix.elixir}}
+          version-file: ".tool-versions"
+          version-type: "strict"
       - name: Deps get
         run: mix deps.get
       - name: Check Credo
