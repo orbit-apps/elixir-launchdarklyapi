@@ -31,7 +31,7 @@ defmodule LaunchDarklyAPI.MixProject do
       {:credo, "~> 1.7", only: [:dev, :test]},
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       # Everything else
-      {:hackney, "~> 1.20.1"},
+      {:hackney, "~> 1.25.0"},
       {:jason, "~> 1.4"},
       {:tesla, "~> 1.11"}
     ]
